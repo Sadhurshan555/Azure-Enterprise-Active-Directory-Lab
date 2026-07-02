@@ -35,30 +35,37 @@ The objective is to simulate a real-world enterprise environment while following
 
 ## High-Level Architecture
 
-                        Internet
-                            │
-                            │
-                 Microsoft Azure
-                            │
-                 Resource Groups
-                            │
-                    Virtual Network
-                            │
-          ┌─────────────────┴─────────────────┐
-          │                                   │
-     Server Subnet                      Client Subnet
-          │                                   │
-   Windows Server 2022                 Windows 11 Client
-          │                                   │
-          │                                   │
-  ┌─────────────────────┐             Domain Joined
-  │                     │
-  │ Active Directory
-  │ DNS
-  │ DHCP
-  │ File Server
-  │ Group Policy
-  └─────────────────────┘
+                                 Internet
+                                     │
+                                     ▼
+                            Microsoft Azure
+                                     │
+                                     ▼
+                            Resource Groups
+                                     │
+                                     ▼
+                            Virtual Network
+                            (10.0.0.0/16)
+                                     │
+                 ┌───────────────────┴───────────────────┐
+                 │                                       │
+                 ▼                                       ▼
+        Server Subnet                           Client Subnet
+         (10.0.1.0/24)                          (10.0.2.0/24)
+                 │                                       │
+                 ▼                                       ▼
+      Windows Server 2022                    Windows 11 Enterprise
+                 │                                       │
+                 │                                       │
+      ┌──────────┴──────────┐                            │
+      │                     │                            │
+      ├─ Active Directory   │                            │
+      ├─ DNS Server         │                            │
+      ├─ DHCP Server        │───────────────┐            │
+      ├─ File Server        │               │            │
+      └─ Group Policy       │               │            │
+                             └──────────────► Domain Joined
+
 
 ## Key Features
 - Infrastructure deployment using Terraform
