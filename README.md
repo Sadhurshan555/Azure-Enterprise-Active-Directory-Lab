@@ -82,7 +82,7 @@ The objective is to simulate a real-world enterprise environment while following
 - Environment validation and health reporting
 
 ## Folder Structure
-
+```
 Azure-Enterprise-Active-Directory-Lab
 │
 ├── terraform
@@ -178,6 +178,7 @@ Azure-Enterprise-Active-Directory-Lab
 │
 ├── Important Configuration Required.md
 └── README.md
+```
 
 ## Skills Demonstrated
 - Infrastructure as Code (Terraform)
