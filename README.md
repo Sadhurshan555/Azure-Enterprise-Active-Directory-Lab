@@ -82,27 +82,102 @@ The objective is to simulate a real-world enterprise environment while following
 - Environment validation and health reporting
 
 ## Folder Structure
-Azure-Enterprise-AD-Lab
+
+Azure-Enterprise-Active-Directory-Lab
 │
 ├── terraform
+│   ├── providers.tf
+│   ├── variables.tf
+│   ├── terraform.tfvars.example
+│   ├── resource_groups.tf
+│   ├── networking.tf
+│   ├── nsg.tf
+│   ├── server_vm.tf
+│   ├── client_vm.tf
+│   ├── extensions.tf
+│   ├── outputs.tf
+│   ├── README.md
+│   └── .gitignore
+│
 ├── scripts
 │   ├── config
+│   │   └── lab-config.ps1
+│   │
 │   ├── install
+│   │   └── 01-install_roles.ps1
+│   │
+│   ├── adds
+│   │   └── 02-promote_domain_controller.ps1
+│   │
+│   ├── dns
+│   │   ├── 03-configure_dns.ps1
+│   │   └── 04-create_dns_records.ps1
+│   │
+│   ├── dhcp
+│   │   └── 05-configure_dhcp.ps1
+│   │
+│   ├── users
+│   │   ├── 06-create_ous.ps1
+│   │   └── 07-create_users.ps1
+│   │
+│   ├── groups
+│   │   ├── 08-create_security_groups.ps1
+│   │   └── 09-add_users_to_groups.ps1
+│   │
+│   ├── fileserver
+│   │   ├── 10-create_file_shares.ps1
+│   │   └── 11-set_ntfs_permissions.ps1
+│   │
+│   ├── gpo
+│   │   ├── 12-create_gpos.ps1
+│   │   ├── 13-password_policy.ps1
+│   │   ├── 14-account_lockout_policy.ps1
+│   │   ├── 15-firewall_policy.ps1
+│   │   ├── 16-windows_update_policy.ps1
+│   │   ├── 17-desktop_wallpaper.ps1
+│   │   ├── 18-usb_storage_policy.ps1
+│   │   └── 19-drive_mapping_policy.ps1
+│   │
+│   ├── client
+│   │   └── 20-domain_join_client.ps1
+│   │
+│   └── health
+│       ├── 21-health_check.ps1
+│       └── 22-generate_lab_report.ps1
+│
+├── diagrams
+│   ├── High-Level-Architecture.drawio
+│   └── Detailed-Architecture.drawio
+│
+├── docs
+│   ├── 01-Architecture.md
+│   ├── 02-Deployment-Guide.md
+│   ├── 03-Terraform.md
+│   ├── 04-Active-Directory.md
+│   ├── 05-DNS.md
+│   ├── 06-DHCP.md
+│   ├── 07-Group-Policy.md
+│   ├── 08-File-Server.md
+│   ├── 09-Client-Domain-Join.md
+│   ├── 10-Health-Checks.md
+│   ├── 11-Troubleshooting.md
+│   └── 12-Future-Improvements.md
+│
+├── screenshots
+│   ├── terraform
+│   ├── azure
 │   ├── adds
 │   ├── dns
 │   ├── dhcp
 │   ├── users
 │   ├── groups
-│   ├── fileserver
 │   ├── gpo
+│   ├── fileserver
 │   ├── client
 │   └── health
 │
-├── diagrams
-├── docs
-├── screenshots
+├── Important Configuration Required.md
 └── README.md
-
 
 ## Skills Demonstrated
 - Infrastructure as Code (Terraform)
