@@ -29,6 +29,12 @@ subscription_id = "Your Azure Subscription ID"
 admin_username = "Administrator"
 
 admin_password = "AdminPass@32145"
+
+####################################
+# Allowed RDP IP
+####################################
+
+allowed_rdp_ip = "YourPublicIP/32"
 ```
 
 ---
